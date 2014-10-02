@@ -32,15 +32,24 @@ RUN echo "deb http://security.ubuntu.com/ubuntu trusty-security multiverse" >> /
 RUN echo "deb-src http://security.ubuntu.com/ubuntu trusty-security multiverse" >> /etc/apt/sources.list
 RUN DEBIAN_FRONTEND=noninteractive apt-get update
 
-#Lets install some tools like nano,
+#Lets add some nano to our container.
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y nano
 
-#Lets install some python
+#Lets add some  python to our container.
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python2.7
 RUN ln -s /usr/bin/python2.7 /usr/bin/python
 
-RUN touch /tmp/keith.txt
+#Add a little git to our container.
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y git
 
+#Lest add a little pip to our container
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python-setuptools
+RUN easy_install pip
+RUN pip install --upgrade pip virtualenv virtualenvwrapper
+
+#Lets add some tempest to our container.
+RUN mkdir /tmp/it
+RUN git clone -b stable/havana --single-branch https://github.com/openstack/tempest.git /tmp/it
 
 
 

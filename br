@@ -1,8 +1,5 @@
 #!/bin/bash
 
-echo "Starting the build......."
+docker build --rm --tag=dock_tempest  . \
+&& docker run -i -t dock_tempest /bin/bash
 
-docker build --rm --tag=dock_tempest  .
-docker run -i -t dock_tempest /bin/bash
-
-echo "Finished the build........you better check for any errors"
