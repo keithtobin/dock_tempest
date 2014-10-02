@@ -51,6 +51,8 @@ RUN pip install --upgrade pip virtualenv virtualenvwrapper
 RUN mkdir /tmp/it
 RUN git clone -b stable/havana --single-branch https://github.com/openstack/tempest.git /tmp/it
 
+#Lets do some tempest configuration in our container.
+ADD tempest.conf /tmp/it/etc/
 
 
 
