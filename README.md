@@ -5,7 +5,7 @@
 To get started you will need Ubuntu, these instruction asume you are using Ubuntu 14.04.
 
 1. Install git on your system if you do not have it already, 
-..* #apt-get -y install git
+..1. #apt-get -y install git
 2. You will need to preform a git clone, this will bring down the source required to build the container to a directory called 'dock_tempest'.
 ..* #git clone https://github.com/keithtobin/dock_tempest.git
 3. You will need to install or upgrade Docker, to do this,
